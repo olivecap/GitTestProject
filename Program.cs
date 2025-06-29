@@ -1,4 +1,5 @@
 ﻿// Add WEB dependencies
+//
 using Microsoft.AspNetCore.Mvc;
 using TPToDoList;
 
@@ -21,7 +22,7 @@ var App = builber.Build();
 App.MapGet("/todos", ([FromServices] ToDoService service) => Results.Ok(service.GetAll()));
 
 // Get by id
-App.MapGet("/todos/{id}", ([FromRoute] int id, [FromServices] ToDoService service) =>
+App.MapGet("/todos/{id:int}", ([FromRoute] int id, [FromServices] ToDoService service) =>
 {
     // check if object exist
     var toDoItem = service.GetById(id);
