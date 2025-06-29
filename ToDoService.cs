@@ -21,7 +21,8 @@ namespace TPToDoList
         // Return active ToDo list (EndTime different to null
         public List<ToDo> GetAllActives()
         {
-            return list.FindAll(x => x.EndDate == null);
+            return list.Where(x => x.EndDate is null).ToList<ToDo>();
+            //return list.FindAll(x => x.EndDate == null);
         }
 
         /// <summary>
